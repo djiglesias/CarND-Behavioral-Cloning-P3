@@ -1,5 +1,7 @@
 data
 record
+data/
+record/
 .ipynb_checkpoints
 *.h5
 models
