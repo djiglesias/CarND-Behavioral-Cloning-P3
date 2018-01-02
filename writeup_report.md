@@ -20,7 +20,6 @@ The goals / steps of this project are the following:
 [image6]: ./examples/placeholder_small.png "Normal Image"
 [image7]: ./examples/placeholder_small.png "Flipped Image"
 
----
 ## 1. Files Submitted
 
 Project includes the following files:
@@ -29,15 +28,12 @@ Project includes the following files:
 * model.h5 containing a trained convolution neural network 
 * writeup_report.md summarizing the results
 
----
 ## 2. Data Collecion Strategy
 In order to collect a sufficient set of data to train the network two styles of driving were collected; center track driving and recovery driving. The two styles act to train the network what the idea situation is as well as how to respond to undesirable inputs where the car is straying from the track center. To provide data for the center track driving, two laps were recorded in both a clockwise and counter clockwise direction around the track. To model recovery behaviour addition video was recorded with the car returning to the middle from the edge of the track on both straight and corner track segments.
 
 (GIF - center track driving | GIF - recovery)
 
 To ensure quality of data recording was only begun once the car was up to speed and the steering was controlled via mouse input rather than keypad to avoid step respond input. This method was repeated for both tracks and recorded in separate folders to enable specific training for a single track.
-
----
 
 ## 3. Data Pre-Processing & Augmentation
 ### 3.1 Multiple Camera Views
@@ -55,7 +51,6 @@ Using the built in methods of Keras the images were normalized and cropped to fu
 
 (image of crop)
 
----
 ## 4. Model Architecture
 
 ### 4.1 Solution Design Approach
@@ -102,5 +97,3 @@ The model used an adam optimizer, so the learning rate was not tuned manually (m
 
 ... epochs
 ... batch size
-
----
