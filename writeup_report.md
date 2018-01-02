@@ -95,5 +95,8 @@ Used a generator...
 
 The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
 
-... epochs
-... batch size
+... adam optimizer
+... epochs = 30
+... batch size = 32
+
+(image of training curve)
