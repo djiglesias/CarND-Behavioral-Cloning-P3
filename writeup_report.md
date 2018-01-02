@@ -12,13 +12,13 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image1]: ./images/crop.png "Cropped Image"
+[image2]: ./images/flip.png "Flipped Image"
+[image3]: ./images/image_center.jpg "Center Image"
+[image4]: ./images/image_left.jpg "Left Image"
+[image5]: ./images/image_right.jpg "Right Image"
+[image6]: ./images/raw.png "Raw Image"
+[image7]: ./images/training.png "Training Plot"
 
 ## 1. Files Submitted
 
@@ -39,17 +39,28 @@ To ensure quality of data recording was only begun once the car was up to speed 
 ### 3.1 Multiple Camera Views
 Using three cameras on the car (left/center/right) increases the size of the training data set and adds multiple views to account for different perspectives of the road. Since there are three images and only one set of steering angles an offset was applied to the steering measurement and associated with the left/right images to account for the difference in view.
 
-(three camera views)
+<p align="center">
+ <img src="./images/image_left.jpg" width=250>
+ <img src="./images/image_center.jpg" width=250>
+ <img src="./images/image_right.jpg" width=250>
+</p>
+
 
 ### 3.2 Mirroring Data Set
 To further increase the data set size the images were flipped horizontally and appended to the data set with the negative steering measurement associated to the image. Once all the data was appended, the set was shuffled and returned using a generator.
 
-(image before and after)
+<p align="center">
+ <img src="./images/raw.png">
+ <img src="./images/flip.png">
+</p>
 
 ### 3.3 Keras
 Using the built in methods of Keras the images were normalized and cropped to further increase the network performance. The images were left as RGB and normalized with a zero mean error between -0.5 to 0.5 for each color. The images were then cropped to remove the top and bottom rows to reduce noise and unwanted artifacts from the hood of the car and scenary unrelated to the road. By applying the normalization and cropping using Keras quite a few lines of code were saved for this project!
 
-(image of crop)
+<p align="center">
+ <img src="./images/raw.png">
+ <img src="./images/crop.png">
+</p>
 
 ## 4. Model Architecture
 
@@ -99,4 +110,6 @@ The model used an adam optimizer, so the learning rate was not tuned manually (m
 ... epochs = 30
 ... batch size = 32
 
-(image of training curve)
+<p align="center">
+ <img src="./images/training.png">
+</p>
