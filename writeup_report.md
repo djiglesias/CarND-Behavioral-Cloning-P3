@@ -46,7 +46,7 @@ To further increase the data set size the images were flipped horizontally and a
  <img src="./images/flip.png">
 </p>
 
-### 3.3 Keras
+### 3.3 Keras Functions
 Using the built in methods of Keras the images were normalized and cropped to further increase the network performance. The images were left as RGB and normalized with a zero mean error between -0.5 to 0.5 for each color. The images were then cropped to remove the top and bottom rows to reduce noise and unwanted artifacts from the hood of the car and scenary unrelated to the road. By applying the normalization and cropping using Keras quite a few lines of code were saved for this project!
 
 <p align="center">
@@ -57,11 +57,7 @@ Using the built in methods of Keras the images were normalized and cropped to fu
 ## 4. Model Architecture
 
 ### 4.1 Solution Design Approach
-
-- LeNet was not used.
-- Nvidia was used
-- Dropout was added
-- pre processing
+The Nvidia Network Architecture was chosen for this project since...
 
 ### 4.2 Final Model Architecture
 The final model was the [NVIDIA Network Architecture](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) with dropout layers added to prevent the network from memorizing the data set.
@@ -70,38 +66,26 @@ The final model was the [NVIDIA Network Architecture](https://devblogs.nvidia.co
 |:---------------------:|:---------------------------------------------:| 
 | Input         		| 160x320x3 Cropped RGB Image							| 
 | Normalization     | 							| 
-| Convolution 5x5    	| 1x1 stride, valid padding, outputs 24x5x5 	|
-| RELU					|												|
-| Convolution 5x5    	| 1x1 stride, valid padding, outputs 36x5x5 	|
-| RELU					|												|
-| Convolution 5x5    	| 1x1 stride, valid padding, outputs 24x5x5 	|
-| RELU					|												|
-| Convolution 5x5    	| 1x1 stride, valid padding, outputs 36x5x5 	|
-| RELU					|												|
-| Dropout          |   | 
-| Convolution 5x5    	| 1x1 stride, valid padding, outputs 48x5x5 	|
-| RELU					|												|
-| Convolution 3x3    	| 1x1 stride, valid padding, outputs 64x3x3 	|
-| RELU					|												|
-| Convolution 3x3    	| 1x1 stride, valid padding, outputs 64x3x3 	|
-| RELU					|												|
-| Dropout          |   | 
+| Convolution 5x5    	| 2x2 stride, valid padding, outputs 24x5x5 	|
+| Convolution 5x5    	| 2x2 stride, valid padding, outputs 36x5x5 	|
+| Convolution 5x5    	| 2x2 stride, valid padding, outputs 24x5x5 	|
+| Convolution 5x5    	| 2x2 stride, valid padding, outputs 36x5x5 	|
+| Convolution 5x5    	| 2x2 stride, valid padding, outputs 48x5x5 	|
+| Convolution 3x3    	| 2x2 stride, valid padding, outputs 64x3x3 	|
+| Convolution 3x3    	| 2x2 stride, valid padding, outputs 64x3x3 	|
 | Flatten          | outputs 1164  |
-| Dropout          |   | 
 | Fully connected		| outputs 100				  |
-| Dropout          |   | 
 | Fully connected		| outputs 50					|
 | Fully connected		| outputs 10					|
 
 ## 5. Training the Model
-Used a generator...
-
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
-
-... adam optimizer
-... epochs = 30
-... batch size = 32
+The model used an adam optimizer for 30 epochs that passed the raw training data into a generator in batch sizes of 32 to lighten the load on the working memory of the system. Each batch was preprocessed as described in **Section 3.3**, shuffled and then returned. 
 
 <p align="center">
  <img src="./images/training.png">
 </p>
+
+## 6. Simulator Performance
+Watch as the car drives around the track by itself!
+
+(GIF)
