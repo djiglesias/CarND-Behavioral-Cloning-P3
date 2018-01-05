@@ -13,7 +13,7 @@ Project includes the following files:
 * model.ipynb: Jupyter notebook for preprocessing the images and training the model
 * model.h5: Containing a trained convolution neural network 
 * writeup_report.md: summarizing the results
-* final.mp4: Video of car driving in autonomous mode
+* auto.mp4: Video of car driving in autonomous mode
 
 ## 2. Data Collecion Strategy
 In order to collect a sufficient set of data to train the network two styles of driving were collected; center track (left) and recovery (right) driving. The two styles act to train the network what the idea situation is as well as how to respond to undesirable inputs where the car is straying from the track center. To provide data for the center track driving, two laps were recorded in both a clockwise and counter clockwise direction around the track. To model recovery behaviour addition video was recorded with the car returning to the middle from the edge of the track on both straight and corner track segments. Due to the complexities of the bridge and sharp corners with a dirt shoulder, additional passes over these sections were recorded and added to the data sample.
