@@ -74,13 +74,11 @@ The final model was the [NVIDIA Network Architecture](https://devblogs.nvidia.co
 | Normalization     | 							| 
 | Convolution 5x5    	| 2x2 stride, valid padding, outputs 24x5x5 	|
 | Convolution 5x5    	| 2x2 stride, valid padding, outputs 36x5x5 	|
-| Convolution 5x5    	| 2x2 stride, valid padding, outputs 24x5x5 	|
-| Convolution 5x5    	| 2x2 stride, valid padding, outputs 36x5x5 	|
 | Convolution 5x5    	| 2x2 stride, valid padding, outputs 48x5x5 	|
 | Convolution 3x3    	| 1x1 stride, valid padding, outputs 64x3x3 	|
 | Convolution 3x3    	| 1x1 stride, valid padding, outputs 64x3x3 	|
-| Flatten          | outputs 1164  |
-| Fully connected		| outputs 100				  |
+| Flatten          | outputs 1164   |
+| Fully connected		| outputs 100				|
 | Fully connected		| outputs 50					|
 | Fully connected		| outputs 10					|
 
