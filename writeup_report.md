@@ -49,7 +49,7 @@ To further increase the data set size the images were flipped horizontally and a
 To further augment the data set to prevent over classifying the network, images were altered by applying a random translation, rotation, and brightness shift. The images were translated up to 5% of their respective width and height, rotated +/-10 degrees, and the brightness shifted by +/-25%. The steering angles remained unchanged.
 
 <p align="center">
- <img src="./images/augment.png">
+ <img src="./images/grid.png">
 </p>
 
 ### 3.4 Keras Preprocessing
