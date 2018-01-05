@@ -1,6 +1,5 @@
 # **Behavioral Cloning Project** 
 ## 0. Overview
-
 The goals / steps of this project are the following:
 * Use the simulator to collect data of good driving behavior
 * Build a convolution neural network in Keras that predicts steering angles from images
@@ -10,10 +9,8 @@ The goals / steps of this project are the following:
 * All points from [rubric](https://review.udacity.com/#!/rubrics/432/view) are addressed
 
 ## 1. Files Submitted
-
 Project includes the following files:
-* train.ipynb: Jupyter notebook for preprocessin the images and training the model
-* drive.py: Script for driving the car in autonomous mode
+* model.ipynb: Jupyter notebook for preprocessin the images and training the model
 * model.h5: Containing a trained convolution neural network 
 * writeup_report.md: summarizing the results
 * final.mp4: Video of car driving in autonomous mode
