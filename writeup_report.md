@@ -10,7 +10,7 @@ The goals / steps of this project are the following:
 
 ## 1. Files Submitted
 Project includes the following files:
-* model.ipynb: Jupyter notebook for preprocessin the images and training the model
+* model.ipynb: Jupyter notebook for preprocessing the images and training the model
 * model.h5: Containing a trained convolution neural network 
 * writeup_report.md: summarizing the results
 * final.mp4: Video of car driving in autonomous mode
@@ -78,7 +78,7 @@ The final model was the [NVIDIA Network Architecture](https://devblogs.nvidia.co
 </p>
 
 ## 5. Training the Model
-The model used an adam optimizer for 8 epochs that passed the raw training data into a generator in batch sizes of 32 to lighten the load on the working memory of the system. Each batch was preprocessed as described in **Section 3**, shuffled and then returned. 
+The model used an adam optimizer for 30 epochs that passed the raw training data into a generator in batch sizes of 32 to lighten the load on the working memory of the system. Each batch was preprocessed as described in **Section 3**, shuffled and then returned. 
 
 <p align="center">
  <img src="./images/training.png">
