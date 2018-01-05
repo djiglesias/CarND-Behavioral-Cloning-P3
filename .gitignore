@@ -1,10 +1,14 @@
+# Compressed Data.
 *.gz
-data
-record
+
+# Folders.
 data/
 record/
+models/
+final/
+
+# iPython Files.
 .ipynb_checkpoints
-*.h5
-models
+
 *.swp
 *.p
