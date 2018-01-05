@@ -85,7 +85,7 @@ The model used an adam optimizer for 30 epochs that passed the raw training data
 </p>
 
 ## 6. Simulator Performance
-Watch as the car drives around the track by itself!
+Watch as the car drives around the track by itself! The car tends to sway between the lines on the straight aways and areas with solid painted lines while is more stable during the unmarked corners and dirt patches. This behaviour is most likely from the training set since extra images for these difficult sections were added to further train the network to handle these complicated regions.
 
 <p align="center">
  <img src="./images/auto.gif">
