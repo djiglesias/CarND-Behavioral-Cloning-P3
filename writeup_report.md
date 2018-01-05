@@ -93,5 +93,5 @@ The model used an adam optimizer for 30 epochs that passed the raw training data
 Watch as the car drives around the track by itself!
 
 <p align="center">
- <img src="./images/auto.mp4">
+ <img src="./images/auto.gif">
 </p>
