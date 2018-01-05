@@ -49,7 +49,7 @@ To further increase the data set size the images were flipped horizontally and a
 To further augment the data set to prevent over classifying the network, images were altered by applying a random translation, rotation, and brightness shift. The images were translated up to 5% of their respective width and height, rotated +/-10 degrees, and the brightness shifted by +/-25%. The steering angles remained unchanged.
 
 <p align="center">
- <img src="./images/augment.png">
+ <img src="./images/grid.png">
 </p>
 
 ### 3.4 Keras Preprocessing
@@ -74,13 +74,11 @@ The final model was the [NVIDIA Network Architecture](https://devblogs.nvidia.co
 | Normalization     | 							| 
 | Convolution 5x5    	| 2x2 stride, valid padding, outputs 24x5x5 	|
 | Convolution 5x5    	| 2x2 stride, valid padding, outputs 36x5x5 	|
-| Convolution 5x5    	| 2x2 stride, valid padding, outputs 24x5x5 	|
-| Convolution 5x5    	| 2x2 stride, valid padding, outputs 36x5x5 	|
 | Convolution 5x5    	| 2x2 stride, valid padding, outputs 48x5x5 	|
 | Convolution 3x3    	| 1x1 stride, valid padding, outputs 64x3x3 	|
 | Convolution 3x3    	| 1x1 stride, valid padding, outputs 64x3x3 	|
-| Flatten          | outputs 1164  |
-| Fully connected		| outputs 100				  |
+| Flatten          | outputs 1164   |
+| Fully connected		| outputs 100				|
 | Fully connected		| outputs 50					|
 | Fully connected		| outputs 10					|
 
