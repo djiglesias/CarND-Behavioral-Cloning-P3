@@ -18,14 +18,14 @@ Project includes the following files:
 * writeup_report.md summarizing the results
 
 ## 2. Data Collecion Strategy
-In order to collect a sufficient set of data to train the network two styles of driving were collected; center track (left) and recovery (right) driving. The two styles act to train the network what the idea situation is as well as how to respond to undesirable inputs where the car is straying from the track center. To provide data for the center track driving, two laps were recorded in both a clockwise and counter clockwise direction around the track. To model recovery behaviour addition video was recorded with the car returning to the middle from the edge of the track on both straight and corner track segments.
+In order to collect a sufficient set of data to train the network two styles of driving were collected; center track (left) and recovery (right) driving. The two styles act to train the network what the idea situation is as well as how to respond to undesirable inputs where the car is straying from the track center. To provide data for the center track driving, two laps were recorded in both a clockwise and counter clockwise direction around the track. To model recovery behaviour addition video was recorded with the car returning to the middle from the edge of the track on both straight and corner track segments. Due to the complexities of the bridge and sharp corners with a dirt shoulder, additional passes over these sections were recorded and added to the data sample.
 
 <p align="center">
  <img src="./images/center.gif">
  <img src="./images/recovery.gif">
 </p>
 
-To ensure quality of data recording was only begun once the car was up to speed and the steering was controlled via mouse input rather than keypad to avoid step respond input. This method was repeated for both tracks and recorded in separate folders to enable specific training for a single track.
+To ensure quality of data recording was only begun once the car was up to speed and the steering was controlled via mouse input rather than keypad to avoid step respond input. This method was repeated for both tracks and recorded in separate folders to enable specific training for a single track. 
 
 ## 3. Data Pre-Processing & Augmentation
 ### 3.1 Multiple Camera Views
@@ -37,7 +37,6 @@ Using three cameras on the car (left/center/right) increases the size of the tra
  <img src="./images/image_right.jpg" width=250>
 </p>
 
-
 ### 3.2 Mirroring Data Set
 To further increase the data set size the images were flipped horizontally and appended to the data set with the negative steering measurement associated to the image. Once all the data was appended, the set was shuffled and returned using a generator.
 
@@ -46,7 +45,14 @@ To further increase the data set size the images were flipped horizontally and a
  <img src="./images/flip.png">
 </p>
 
-### 3.3 Keras Functions
+### 3.3 Rotate, Translate & Brightness
+To further augment the data set to prevent over classifying the network, images were altered by applying a random translation, rotation, and brightness shift. The images were translated up to 5% of their respective width and height, rotated +/-10 degrees, and the brightness shifted by +/-25%. The steering angles remained unchanged.
+
+<p align="center">
+ <img src="./images/augment.png">
+</p>
+
+### 3.4 Keras Preprocessing
 Using the built in methods of Keras the images were normalized and cropped to further increase the network performance. The images were left as RGB and normalized with a zero mean error between -0.5 to 0.5 for each color. The images were then cropped to remove the top and bottom rows to reduce noise and unwanted artifacts from the hood of the car and scenary unrelated to the road. By applying the normalization and cropping using Keras quite a few lines of code were saved for this project!
 
 <p align="center">
@@ -57,7 +63,7 @@ Using the built in methods of Keras the images were normalized and cropped to fu
 ## 4. Model Architecture
 
 ### 4.1 Solution Design Approach
-The Nvidia Network Architecture was chosen for this project since...
+The Nvidia Network Architecture was chosen for this project since this seems to be the industry standard for self driving cars at the moment of this writing. The network ... 
 
 ### 4.2 Final Model Architecture
 The final model was the [NVIDIA Network Architecture](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) with dropout layers added to prevent the network from memorizing the data set.
@@ -71,15 +77,15 @@ The final model was the [NVIDIA Network Architecture](https://devblogs.nvidia.co
 | Convolution 5x5    	| 2x2 stride, valid padding, outputs 24x5x5 	|
 | Convolution 5x5    	| 2x2 stride, valid padding, outputs 36x5x5 	|
 | Convolution 5x5    	| 2x2 stride, valid padding, outputs 48x5x5 	|
-| Convolution 3x3    	| 2x2 stride, valid padding, outputs 64x3x3 	|
-| Convolution 3x3    	| 2x2 stride, valid padding, outputs 64x3x3 	|
+| Convolution 3x3    	| 1x1 stride, valid padding, outputs 64x3x3 	|
+| Convolution 3x3    	| 1x1 stride, valid padding, outputs 64x3x3 	|
 | Flatten          | outputs 1164  |
 | Fully connected		| outputs 100				  |
 | Fully connected		| outputs 50					|
 | Fully connected		| outputs 10					|
 
 ## 5. Training the Model
-The model used an adam optimizer for 30 epochs that passed the raw training data into a generator in batch sizes of 32 to lighten the load on the working memory of the system. Each batch was preprocessed as described in **Section 3.3**, shuffled and then returned. 
+The model used an adam optimizer for 30 epochs that passed the raw training data into a generator in batch sizes of 32 to lighten the load on the working memory of the system. Each batch was preprocessed as described in **Section 3**, shuffled and then returned. 
 
 <p align="center">
  <img src="./images/training.png">
@@ -88,4 +94,6 @@ The model used an adam optimizer for 30 epochs that passed the raw training data
 ## 6. Simulator Performance
 Watch as the car drives around the track by itself!
 
-(GIF)
+<p align="center">
+ <img src="./images/final.mp4">
+</p>
